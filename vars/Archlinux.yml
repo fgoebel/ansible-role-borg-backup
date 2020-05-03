@@ -1,0 +1,9 @@
+---
+# role: ansible-role-borg-backup
+# file: vars/Archlinux.yml
+
+borg_backup_package_available: True
+
+borg_backup_packages:
+  - borgbackup
+

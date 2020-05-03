@@ -1,0 +1,14 @@
+---
+# role: ansible-role-borg-backup
+# file: defaults/main.yml
+
+# The role is disabled by default, so you do not get in trouble.
+# Checked in tasks/main.yml which includes tasks.yml if enabled.
+borg_backup_role_enabled: False
+
+borg_force_binary_installation: False
+
+borg_binary_version: 1.1.11
+borg_install_path: /usr/local/bin
+borg_arch: linux64
+borg_download_url: "https://github.com/borgbackup/borg/releases/download/{{ borg_binary_version }}/borg-{{ borg_arch }}"

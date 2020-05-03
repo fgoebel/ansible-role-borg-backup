@@ -1,0 +1,7 @@
+ansible-lint
+docker
+flake8
+molecule>=3.0.3
+molecule-vagrant
+testinfra
+yamllint

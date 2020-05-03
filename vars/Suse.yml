@@ -1,0 +1,6 @@
+---
+# role: ansible-role-borg-backup
+# file: vars/Suse.yml
+borg_backup_package_available: False
+
+borg_backup_packages: []

@@ -1,0 +1,7 @@
+---
+# role: ansible-role-borg-backup
+# file: vars/RedHat.yml
+
+borg_backup_package_available: False
+
+borg_backup_packages: []

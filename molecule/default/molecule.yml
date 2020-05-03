@@ -1,0 +1,39 @@
+---
+# role: ansible-role-borg-backup
+# file: molecule/default/molecule.yml
+
+dependency:
+  name: galaxy
+  #options:
+  # role-file: requirements.yml
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .
+  flake8
+platforms:
+  - name: borg-backup-default
+    image: ${MOLECULE_DIST:-"jam82/molecule-ubuntu:20.04"}
+    command: ${MOLECULE_DOCKER_CMD:-""}
+    pre_build_image: True
+    privileged: True
+    tmpfs:
+      - /tmp
+      - /run
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+provisioner:
+  name: ansible
+  log: True
+  playbooks:
+    prepare: ../resources/playbooks/prepare.yml
+    converge: ../resources/playbooks/converge.yml
+    verify: ../resources/playbooks/verify.yml
+  inventory:
+    group_vars:
+      all:
+        borg_backup_role_enabled: True
+verifier:
+  name: ansible

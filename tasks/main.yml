@@ -1,0 +1,7 @@
+---
+# role: ansible-role-borg-backup
+# file: tasks/main.yml
+
+- name: Import tasks for role ansible-role-borg-backup
+  import_tasks: tasks.yml
+  when: borg_backup_role_enabled | bool

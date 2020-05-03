@@ -1,0 +1,31 @@
+---
+# role:
+# file:
+
+- name: Verfy
+  hosts: all
+  tasks:
+    # specific to borg.
+    # as a python-binary it extracts to /tmp and requires exec on that path
+    - name: create new temporary folder for testing borg 
+      file:
+        path: /temp-borg
+        mode: "0777"
+        state: directory
+
+    - name: run borg --version
+      command: "borg --version"
+      register: borg_version
+      environment: 
+        TEMP: "/temp-borg"
+      changed_when: false
+
+    - name: show installed version
+      debug:
+        var: borg_version.stdout
+
+    - name: Assert borg is installed and working
+      assert:
+        that:
+        - borg_backup_role_enabled
+        - borg_version.rc == 0
