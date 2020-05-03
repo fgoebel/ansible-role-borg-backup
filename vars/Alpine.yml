@@ -7,4 +7,12 @@ borg_backup_package_available: True
 borg_backup_packages:
   - borgbackup
 
-borg_backup_binary_required_packages: []
+borg_backup_binary_required_packages:
+  - python3
+  - py3-pyzmq
+  - libzmq
+  - libstdc++
+  - libgcc
+  - libsodium
+  - libacl
+  - lz4-libs
