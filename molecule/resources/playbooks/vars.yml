@@ -2,5 +2,5 @@
 # role: ansible-role-borg-backup
 # file: molecule/resources/playbooks/vars.yml
 
-common_role_enabled: True
 borg_backup_role_enabled: True
+borg_force_binary_installation: True

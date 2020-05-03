@@ -4,6 +4,9 @@
 
 - name: Verfy
   hosts: all
+  pre_tasks:
+    - name: "Include variables to converge playbook"
+      include_vars: vars.yml
   tasks:
     # specific to borg.
     # as a python-binary it extracts to /tmp and requires exec on that path
@@ -29,3 +32,15 @@
         that:
         - borg_backup_role_enabled
         - borg_version.rc == 0
+      when: not borg_force_binary_installation
+
+    - name: Assert version when force installed
+      assert:
+        that:
+        - borg_backup_role_enabled
+        - borg_version.rc == 0
+        - borg_version.stdout == "borg 1.1.11"
+      when: 
+        - borg_force_binary_installation
+        # Alpine force binary installation will fail... so we exclude these until fixed
+        - not ansible_os_family == "Alpine"

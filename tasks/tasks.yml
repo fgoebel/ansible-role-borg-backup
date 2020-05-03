@@ -20,7 +20,12 @@
   package:
     name: "{{ borg_backup_packages }}"
     state: present
+  when:
+    - borg_backup_package_available
+    - not borg_force_binary_installation
 
 - name: include tasks for manual installation with binary package
   include_tasks: binary-install.yml
-  when: not borg_backup_package_available
+  when: |
+    (not borg_backup_package_available)
+    or borg_force_binary_installation

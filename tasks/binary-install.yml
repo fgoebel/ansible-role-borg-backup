@@ -2,10 +2,15 @@
 # role: ansible-role-borg-backup
 # file ./tasks/binary-install.yml
 
-- name: Check if borg is present already
-  stat: 
-    path: "{{ borg_install_path }}/borg-{{borg_binary_version}}"
-  register: stat_borg_presence
+- name: fail not supported OS
+  fail:
+    msg: "Sry i was to lazy to implement force binary installation for this OS. I am really sorry!"
+  when: ansible_os_family == "Alpine"
+
+- name: Install packages for ansible-role-borg-backup
+  package:
+    name: "{{ borg_backup_binary_required_packages }}"
+    state: present
 
 - name: Download borg
   become: yes

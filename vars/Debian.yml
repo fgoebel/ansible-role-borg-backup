@@ -6,3 +6,5 @@ borg_backup_package_available: True
 
 borg_backup_packages:
   - borgbackup
+
+borg_backup_binary_required_packages: []
