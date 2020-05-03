@@ -1,6 +1,8 @@
 # ansible-role-borg-backup
 
-**Ansible role for setting up borg-backup.**
+**Ansible role for setting up [borg-backup](https://borgbackup.readthedocs.io/).**
+
+**This role does only installation of borgbackup, no configuration at all.**
 
 This Role is able to install borgbackup. It was written because i wanted to use the same and most up to date version of borgbackup on multiple systems with different OS.
 As the versions provided differ with each package-manager it is possible to install the binary with the same version.
