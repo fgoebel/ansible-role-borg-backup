@@ -15,15 +15,15 @@
 - name: Download borg
   become: yes
   get_url:
-    url: "{{ borg_download_url }}"
-    dest: "{{ borg_install_path }}/borg-{{borg_binary_version}}"
+    url: "{{ borg_binary_download_url }}"
+    dest: "{{ borg_binary_install_path }}/borg-{{borg_binary_version}}"
     mode: "0755"
 
 - name: create symlink for borg
   become: yes
   file:
-    src: "{{ borg_install_path }}/borg-{{borg_binary_version}}"
-    dest: "{{ borg_install_path }}/borg"
+    src: "{{ borg_binary_install_path }}/borg-{{borg_binary_version}}"
+    dest: "{{ borg_binary_install_path }}/borg"
     state: link
     # force?
     force: yes
@@ -31,8 +31,8 @@
 - name: create symlink for borgfs
   become: yes
   file:
-    src: "{{ borg_install_path }}/borg-{{borg_binary_version}}"
-    dest: "{{ borg_install_path }}/borgfs"
+    src: "{{ borg_binary_install_path }}/borg-{{borg_binary_version}}"
+    dest: "{{ borg_binary_install_path }}/borgfs"
     state: link
     # force?
     force: yes
