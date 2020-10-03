@@ -30,12 +30,15 @@ platforms:
     box: "fedora/31-cloud-base"
   - name: borg-backup-ubuntu1804
     box: "generic/ubuntu1804"
+  - name: borg-backup-ubuntu2004
+    box: "generic/ubuntu2004"
 provisioner:
   name: ansible
   log: True
   playbooks:
     prepare: ../resources/playbooks/prepare.yml
     converge: ../resources/playbooks/converge.yml
+    verify: ../resources/playbooks/verify.yml
   inventory:
     group_vars:
       all:
