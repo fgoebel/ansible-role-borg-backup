@@ -14,7 +14,7 @@ pipeline {
           ls
           pwd
           docker -v
-          python -V
+          python3 -V
           molecule --version
         '''
       }
