@@ -12,6 +12,7 @@ pipeline {
       steps {
         sh '''
           ls
+          pwd
           docker -v
           python -V
           molecule --version
