@@ -26,7 +26,7 @@ pipeline {
 
     stage ('Molecule test') {
       steps {
-        sh 'molecule lint'
+        sh 'molecule test'
       }
     }
 
