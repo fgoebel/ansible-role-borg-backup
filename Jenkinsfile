@@ -11,6 +11,7 @@ pipeline {
     stage ('Display versions') {
       steps {
         sh '''
+          ls
           docker -v
           python -V
           molecule --version
@@ -20,7 +21,7 @@ pipeline {
 
     stage ('Molecule test') {
       steps {
-        sh 'sudo molecule lint'
+        sh 'molecule lint'
       }
     }
 
