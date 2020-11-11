@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'quay.io/ansible/molecule:3.2.0a0'
+      image 'my-molecule:latest'
       args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
