@@ -14,6 +14,7 @@ pipeline {
           ls
           pwd
           ls -la /
+          id
           mkdir /.ansible         
           docker -v
           python3 -V
