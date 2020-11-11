@@ -15,8 +15,7 @@ pipeline {
           pwd
           ls -la /
           id
-          echo $HOME
-          mkdir /.ansible         
+          echo $HOME         
           docker -v
           python3 -V
           ansible --version
