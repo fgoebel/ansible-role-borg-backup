@@ -13,6 +13,8 @@ pipeline {
         sh '''
           ls
           pwd
+          ls -la /
+          mkdir /.ansible         
           docker -v
           python3 -V
           ansible --version
