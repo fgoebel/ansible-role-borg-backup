@@ -16,7 +16,6 @@ pipeline {
           ls -la /
           id
           echo $HOME
-          sleep 1000
           mkdir /.ansible         
           docker -v
           python3 -V
