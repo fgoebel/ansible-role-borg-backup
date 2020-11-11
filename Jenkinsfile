@@ -15,6 +15,8 @@ pipeline {
           pwd
           docker -v
           python3 -V
+          ansible --version
+          molecule --version
         '''
       }
     }
