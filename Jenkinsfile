@@ -26,7 +26,7 @@ pipeline {
 
     stage ('Molecule test') {
       steps {
-        sh 'molecule test'
+        sh 'sudo molecule test'
       }
     }
 
