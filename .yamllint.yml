@@ -1,8 +1,9 @@
 ---
-# role: ansible-role-borg-backup
-# file: molecule/shared/yamllint.yml
-
 extends: default
+
+ignore: |
+  cloud-init.yml
+  .venv
 
 rules:
   truthy:
