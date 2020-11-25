@@ -15,7 +15,7 @@ lint: |
   flake8
 platforms:
   - name: borg_backup-alpine311
-    image: "jam82/molecule-alpine:3.11"
+    image: "fgoebel/molecule-alpine:3.11"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -23,7 +23,7 @@ platforms:
       - /tmp
       - /run
   - name: borg_backup-alpine
-    image: "jam82/molecule-alpine:latest"
+    image: "fgoebel/molecule-alpine:latest"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -31,7 +31,7 @@ platforms:
       - /tmp
       - /run
   - name: borg_backup-amazonlinux
-    image: "jam82/molecule-amazonlinux:latest"
+    image: "fgoebel/molecule-amazonlinux:latest"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -41,7 +41,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-arch
-    image: "jam82/molecule-archlinux:latest"
+    image: "fgoebel/molecule-archlinux:latest"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -51,7 +51,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-centos6
-    image: "jam82/molecule-centos:6"
+    image: "fgoebel/molecule-centos:6"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -59,7 +59,7 @@ platforms:
       - /tmp
       - /run
   - name: borg_backup-centos7
-    image: "jam82/molecule-centos:7"
+    image: "fgoebel/molecule-centos:7"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -69,7 +69,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-centos8
-    image: "jam82/molecule-centos:8"
+    image: "fgoebel/molecule-centos:8"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -79,7 +79,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-debian9
-    image: "jam82/molecule-debian:9"
+    image: "fgoebel/molecule-debian:9"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -89,7 +89,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-debian10
-    image: "jam82/molecule-debian:10"
+    image: "fgoebel/molecule-debian:10"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -99,7 +99,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-debian
-    image: "jam82/molecule-debian:latest"
+    image: "fgoebel/molecule-debian:latest"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -109,7 +109,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-opensuse15
-    image: "jam82/molecule-opensuse:15"
+    image: "fgoebel/molecule-opensuse:15"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -119,7 +119,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-opensuse
-    image: "jam82/molecule-opensuse:latest"
+    image: "fgoebel/molecule-opensuse:latest"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -129,7 +129,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-opensuse-tumbleweed
-    image: "jam82/molecule-opensuse:tumbleweed"
+    image: "fgoebel/molecule-opensuse:tumbleweed"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -139,7 +139,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-oraclelinux6
-    image: "jam82/molecule-oraclelinux:6"
+    image: "fgoebel/molecule-oraclelinux:6"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -147,7 +147,7 @@ platforms:
       - /tmp
       - /run
   - name: borg_backup-oraclelinux7
-    image: "jam82/molecule-oraclelinux:7"
+    image: "fgoebel/molecule-oraclelinux:7"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -157,7 +157,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-oraclelinux8
-    image: "jam82/molecule-oraclelinux:8"
+    image: "fgoebel/molecule-oraclelinux:8"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -167,7 +167,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-oraclelinux
-    image: "jam82/molecule-oraclelinux:latest"
+    image: "fgoebel/molecule-oraclelinux:latest"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -177,7 +177,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-ubuntu1604
-    image: "jam82/molecule-ubuntu:16.04"
+    image: "fgoebel/molecule-ubuntu:16.04"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -187,7 +187,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-ubuntu1804
-    image: "jam82/molecule-ubuntu:18.04"
+    image: "fgoebel/molecule-ubuntu:18.04"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -197,7 +197,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-ubuntu2004
-    image: "jam82/molecule-ubuntu:20.04"
+    image: "fgoebel/molecule-ubuntu:20.04"
     override_command: False
     pre_build_image: True
     privileged: True
@@ -207,7 +207,7 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - name: borg_backup-ubuntu
-    image: "jam82/molecule-ubuntu:latest"
+    image: "fgoebel/molecule-ubuntu:latest"
     override_command: False
     pre_build_image: True
     privileged: True

@@ -11,22 +11,22 @@
     upgrade_enabled: False
   tasks:
     # this is done to save time, just fire all commands
-    - name: Set fact for os-specific bootstrapping
-      set_fact:
-        bootstrap:
-          - 'apk add --no-cache bash sudo python3 vim'
-          - 'apt-get -y update && apt-get install -y bash sudo python3 python3-apt vim'
-          - 'dnf makecache && dnf -y install bash sudo python3 vim'
-          - 'pacman -Syy && pacman --noconfirm -S bash sudo python3 vim'
-          - 'yum -y makecache && yum -y install bash sudo python3 vim'
-          - 'zypper -n update && zypper -n install bash sudo python python-xml python3 python3-xml vim'
+    # - name: Set fact for os-specific bootstrapping
+    #   set_fact:
+    #     bootstrap:
+    #       - 'apk add --no-cache bash sudo python3 vim'
+    #       - 'apt-get -y update && apt-get install -y bash sudo python3 python3-apt vim'
+    #       - 'dnf makecache && dnf -y install bash sudo python3 vim'
+    #       - 'pacman -Syy && pacman --noconfirm -S bash sudo python3 vim'
+    #       - 'yum -y makecache && yum -y install bash sudo python3 vim'
+    #       - 'zypper -n update && zypper -n install bash sudo python python-xml python3 python3-xml vim'
 
-    # bootstrap machines for ansible with bash, sudo, python and vim
-    - name: Bootstrap machine for ansible (ignore_errors)
-      raw: "{{ item }}"
-      loop: "{{ bootstrap }}"
-      ignore_errors: yes
-      tags: ['skip_ansible_lint']
+    # # bootstrap machines for ansible with bash, sudo, python and vim
+    # - name: Bootstrap machine for ansible (ignore_errors)
+    #   raw: "{{ item }}"
+    #   loop: "{{ bootstrap }}"
+    #   ignore_errors: yes
+    #   tags: ['skip_ansible_lint']
 
     # gather facts
     - name: Gather facts
