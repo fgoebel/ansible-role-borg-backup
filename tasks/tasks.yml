@@ -29,3 +29,27 @@
   when: |
     (not borg_backup_package_available)
     or borg_force_binary_installation
+
+- name: Create borg client scripts
+  template:
+    dest: /usr/local/bin/borg-{{ bc.name }}
+    src: borg-backup.sh.j2
+    owner: root
+    group: root
+    mode: '0744'
+  loop: "{{ borg_configs }}"
+  loop_control:
+    loop_var: bc  # short for borg_config
+    label: "{{ bc.name }}"
+  when: borg_client_config_enabled | bool
+
+# ssh-key-generation and location
+# configure ssh-key on backup destination
+#   including restrictive access and append only
+
+# server setup and configuration
+# - name: configure borg server
+
+# configure ssh options for borg: see https://borgbackup.readthedocs.io/en/stable/usage/serve.html for more information
+
+# backup retries

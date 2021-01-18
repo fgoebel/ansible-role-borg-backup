@@ -13,3 +13,19 @@ borg_binary_version: 1.1.15
 borg_binary_install_path: /usr/local/bin
 borg_binary_arch: linux64
 borg_binary_download_url: "https://github.com/borgbackup/borg/releases/download/{{ borg_binary_version }}/borg-{{ borg_binary_arch }}" # yamllint disable-line
+
+# Borg Client configuration
+borg_path: borg
+
+borg_client_config_enabled: True
+
+borg_configs: []
+
+
+# Borg Server configuration
+borg_remote_path: borg
+
+# borg_server_config_enabled: False  # WARNING: Not implemented yet
+
+# Ideas:
+# - create authorized_keys entry

@@ -1,0 +1,114 @@
+#!/bin/bash
+# config for {{ bc.name }}
+
+load_preferences(){
+        export BORG_RSH='ssh -oBatchMode=yes -i {{ bc.ssh_key }}'
+        export BORG_REPO='{{ bc.repo }}'
+        export BORG_REMOTE_PATH={{ borg_remote_path }}
+        PREFIX=normal
+        PRUNE_OPTIONS="{{ bc.prune_options }}"
+}
+
+{% if bc.pre_backup_hooks is defined and bc.pre_backup_hooks | length > 0 %}
+pre_backup_hooks(){
+{% for hook in bc.pre_backup_hooks %}
+        {{ hook }}
+{% endfor %}
+}
+{% endif %}
+
+{% if bc.post_backup_hooks is defined and bc.post_backup_hooks | length > 0 %}
+post_backup_hooks(){
+{% for hook in bc.post_backup_hooks %}
+        {{ hook }}
+{% endfor %}
+}
+{% endif %}
+
+backup(){
+{% if (( bc.borg_cd_dir is defined)  and ( not bc.borg_cd_dir=="") ) %}
+        cd {{ bc.borg_cd_dir }};
+{% endif %}
+        {{ borg_path }} create \
+        --progress \
+        --umask 0007 \
+        --compression {{ bc.compression | default("lzma,4") }} \
+        --stats \
+{% for exclude in bc.exclude %}
+        --exclude '{{ exclude }}' \
+{% endfor %}
+        ::$PREFIX-{now} \
+{% for include in bc.include %}
+        {{ include }} \
+{% endfor %}
+
+}
+
+prune(){
+        echo "Start borg prune"
+        {{ borg_path }} prune --list -P $PREFIX $PRUNE_OPTIONS ::
+        echo "Borg prune beendet"
+}
+
+prune-only(){
+        echo "Starte borg prune-only manual"
+        #list dry-run first
+        {{ borg_path }} prune --dry-run --list -P $PREFIX $PRUNE_OPTIONS ::
+        #ask if okay to delete
+        read -p "Are you sure to prune?" -r
+        echo # optional move to a new line
+        if [[ $REPLY =~ ^[Yy]$ ]]
+        then
+                {{ borg_path }} prune --list -P $PREFIX $PRUNE_OPTIONS ::
+        else
+                echo "aborting prune..."
+        fi
+}
+
+init-borg-repo(){
+        {{ borg_path }} init -e=none ::
+}
+
+help(){
+        echo "Usage: $(basename "$0") borg (..)|backup|prune-only|help"
+        echo ""
+        echo "where:"
+        echo "  borg (...borg args)     is a simple wrapper for borg commands"
+        echo "                          use :: when repository argument is needed"
+        echo "  backup                  does the backup"
+        echo "  prune-only              does only pruning without backup"
+        echo "  help                    displays this"
+}
+
+case "$1" in
+        borg)   shift
+                load_preferences
+                {{ borg_path }} $@
+                ;;
+        backup)
+                load_preferences
+{% if bc.pre_backup_hooks is defined and bc.pre_backup_hooks | length > 0 %}
+                pre_backup_hooks
+{% endif %}
+                backup
+{% if bc.post_backup_hooks is defined and bc.post_backup_hooks | length > 0 %}
+                post_backup_hooks
+{% endif %}
+                #prune
+                ;;
+        restore-last)
+                load_preferences
+                restore-last
+                ;;
+        prune-only)
+                load_preferences
+                prune-only
+                ;;
+        init)
+                load_preferences
+                init-borg-repo
+                ;;
+        help|*)
+                help
+                ;;
+esac
