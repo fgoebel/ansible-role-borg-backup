@@ -22,6 +22,20 @@ As the versions provided differ with each package-manager it is possible to inst
 
 Ansible 2.9 or higher is recommended.
 
+You have to provide a ssh key on the host for borg backup to use. You could create one with this task for example:
+
+```
+- name: Create SSH-key
+  community.crypto.openssh_keypair:
+    force: no
+    path: /root/.ssh/id_ed25519
+    regenerate: partial_idempotence
+    type: "ed25519"
+    state: present
+    owner: root
+    group: root
+```
+
 ## Variables
 
 Variables and defaults for this role:
