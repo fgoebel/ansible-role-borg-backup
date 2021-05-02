@@ -27,6 +27,10 @@
     #   loop: "{{ bootstrap }}"
     #   ignore_errors: yes
     #   tags: ['skip_ansible_lint']
+    - name: Run Alpine bootstrap tasks
+      raw: apk add --no-cache bash sudo python3 vim
+      ignore_errors: true
+      when: bootstrap is defined and bootstrap | bool
 
     # gather facts
     - name: Gather facts

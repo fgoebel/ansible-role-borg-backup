@@ -56,5 +56,6 @@ provisioner:
     group_vars:
       all:
         borg_backup_role_enabled: True
+        bootstrap: true
 verifier:
   name: ansible
