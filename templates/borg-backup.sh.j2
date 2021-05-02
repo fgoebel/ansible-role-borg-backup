@@ -55,7 +55,7 @@ prune-only(){
         #list dry-run first
         {{ borg_path }} prune --dry-run --list -P $PREFIX $PRUNE_OPTIONS ::
         #ask if okay to delete
-        read -p "Are you sure to prune?" -r
+        read -p "Are you sure to prune? Type 'Y' to confirm" -r
         echo # optional move to a new line
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
