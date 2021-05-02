@@ -1,0 +1,6 @@
+---
+# global molecule config file
+
+# disable the prerun step.
+# This step would install all roles from ./requirements.yml but we want to include this file explicitly.
+prerun: false
