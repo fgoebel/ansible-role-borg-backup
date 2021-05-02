@@ -39,7 +39,7 @@
         that:
           - borg_backup_role_enabled
           - borg_version.rc == 0
-          - borg_version.stdout == "borg 1.1.11"
+          - borg_version.stdout == "borg 1.1.15"
       when:
         - borg_force_binary_installation
         # Alpine force binary installation will fail... so we exclude these until fixed
