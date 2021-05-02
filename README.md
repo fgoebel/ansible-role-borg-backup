@@ -80,6 +80,14 @@ This Playbook will install the binary in version 1.1.12 even if a package is ava
   roles:
     - role: ansible-role-borg-backup
 ```
+## Ideas to Implement
+
+- implement borg backup server configuration
+- create authorized_keys entry
+- implement retries
+- recovery after failures
+- implement logging / notifications of backup success/failures
+
 
 ## License and Author
 

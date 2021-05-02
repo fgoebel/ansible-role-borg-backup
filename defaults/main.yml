@@ -51,6 +51,3 @@ borg_configs:
 borg_remote_path: borg
 
 # borg_server_config_enabled: False  # WARNING: Not implemented yet
-
-# Ideas:
-# - create authorized_keys entry
