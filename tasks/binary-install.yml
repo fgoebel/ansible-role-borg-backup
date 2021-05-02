@@ -5,7 +5,7 @@
 - name: fail not supported OS
   fail:
     msg: "Sry i was to lazy to implement force binary installation for this OS. I am really sorry!"
-  when: ansible_os_family == "Alpine" or ansible_distribution == "Fedora"
+  when: ansible_os_family == "Alpine"
 
 - name: Install packages for ansible-role-borg-backup
   package:
