@@ -2,7 +2,8 @@
 # role: ansible-role-borg-backup
 # file: vars/Debian.yml
 
-borg_backup_packages: []
+borg_backup_packages:
+  - cron
 
 borg_backup_package_available: True
 borg_backup_package: borgbackup
