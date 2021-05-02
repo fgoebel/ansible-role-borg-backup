@@ -6,6 +6,11 @@
   fail:
     msg: "Sry i was to lazy to implement force binary installation for this OS. I am really sorry!"
   when: ansible_os_family == "Alpine"
+  ignore_errors: true
+
+- name: end play for hosts not supportet!
+  meta: end_host
+  when: ansible_os_family == "Alpine"
 
 - name: Install packages for ansible-role-borg-backup
   package:
@@ -14,10 +19,11 @@
 
 - name: Download borg
   become: yes
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ borg_binary_download_url }}"
     dest: "{{ borg_binary_install_path }}/borg-{{ borg_binary_version }}"
     mode: "0755"
+    validate_certs: "{{ borg_binary_download_validate_certs | default('true')}}"
 
 - name: create symlink for borg
   become: yes
