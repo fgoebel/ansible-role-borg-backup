@@ -26,15 +26,11 @@ galaxy_info:
   platforms:
     - name: Alpine
       versions:
-        - 3.10
         - 3.11
-    - name: Amazon
-      versions:
-        - 2
     - name: Archlinux
     - name: CentOS
       versions:
-        - 7
+
         - 8
     - name: Debian
       versions:
@@ -42,14 +38,8 @@ galaxy_info:
         - 10
     - name: Fedora
       versions:
-        - 31
-    - name: Oracle
-      versions:
-        - 7
-        - 8
-    - name: OpenSuse Leap
-      versions:
-        - 15
+        - 33
+
     - name: Ubuntu
       versions:
         - 18.04
@@ -57,4 +47,4 @@ galaxy_info:
 
   galaxy_tags: []
 
-  dependencies: []
+dependencies: []

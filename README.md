@@ -15,7 +15,7 @@ As the versions provided differ with each package-manager it is possible to inst
 - Archlinux
 - CentOS 8
 - Debian 9, 10
-- Fedora 31
+- Fedora 33
 - Ubuntu 18.04, 20.04
 
 ## Requirements
