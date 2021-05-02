@@ -17,31 +17,31 @@ lint: |
   ansible-lint .
   flake8
 platforms:
-  - name: borg-backup-alpine311
+  - name: alpine311-borg-backup
     box: "generic/alpine311"
     cpus: 2
     memory: 1024
-  - name: borg-backup-arch
+  - name: arch-borg-backup
     box: "archlinux/archlinux"
     cpus: 2
     memory: 1024
-  - name: borg-backup-centos8
+  - name: centos8-borg-backup
     box: "centos/8"
     cpus: 2
     memory: 1024
-  - name: borg-backup-debian10
+  - name: debian10-borg-backup
     box: "debian/buster64"
     cpus: 2
     memory: 1024
-  - name: borg-backup-fedora33
+  - name: fedora33-borg-backup
     box: "fedora/33-cloud-base"
     cpus: 2
     memory: 1024
-  - name: borg-backup-ubuntu1804
+  - name: ubuntu1804-borg-backup
     box: "ubuntu/bionic64"
     cpus: 2
     memory: 1024
-  - name: borg-backup-ubuntu2004
+  - name: ubuntu2004-borg-backup
     box: "ubuntu/focal64"
     cpus: 2
     memory: 1024

@@ -14,7 +14,7 @@ lint: |
   ansible-lint .
   flake8
 platforms:
-  - name: borg_backup-alpine311
+  - name: alpine311-borg-backup
     image: "fgoebel/molecule-alpine:3.11"
     override_command: False
     pre_build_image: True
@@ -22,7 +22,7 @@ platforms:
     tmpfs:
       - /tmp
       - /run
-  - name: borg_backup-alpine
+  - name: alpine-borg-backup
     image: "fgoebel/molecule-alpine:latest"
     override_command: False
     pre_build_image: True
@@ -30,7 +30,7 @@ platforms:
     tmpfs:
       - /tmp
       - /run
-  - name: borg_backup-amazonlinux
+  - name: amazonlinux-borg-backup
     image: "fgoebel/molecule-amazonlinux:latest"
     override_command: False
     pre_build_image: True
@@ -40,7 +40,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-arch
+  - name: arch-borg-backup
     image: "fgoebel/molecule-archlinux:latest"
     override_command: False
     pre_build_image: True
@@ -50,7 +50,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-centos6
+  - name: centos6-borg-backup
     image: "fgoebel/molecule-centos:6"
     override_command: False
     pre_build_image: True
@@ -58,7 +58,7 @@ platforms:
     tmpfs:
       - /tmp
       - /run
-  - name: borg_backup-centos7
+  - name: centos7-borg-backup
     image: "fgoebel/molecule-centos:7"
     override_command: False
     pre_build_image: True
@@ -68,7 +68,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-centos8
+  - name: centos8-borg-backup
     image: "fgoebel/molecule-centos:8"
     override_command: False
     pre_build_image: True
@@ -78,7 +78,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-debian9
+  - name: debian9-borg-backup
     image: "fgoebel/molecule-debian:9"
     override_command: False
     pre_build_image: True
@@ -88,7 +88,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-debian10
+  - name: debian10-borg-backup
     image: "fgoebel/molecule-debian:10"
     override_command: False
     pre_build_image: True
@@ -98,7 +98,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-debian
+  - name: debian-borg-backup
     image: "fgoebel/molecule-debian:latest"
     override_command: False
     pre_build_image: True
@@ -108,7 +108,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-opensuse15
+  - name: opensuse15-borg-backup
     image: "fgoebel/molecule-opensuse:15"
     override_command: False
     pre_build_image: True
@@ -118,7 +118,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-opensuse
+  - name: opensuse-borg-backup
     image: "fgoebel/molecule-opensuse:latest"
     override_command: False
     pre_build_image: True
@@ -128,7 +128,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-opensuse-tumbleweed
+  - name: opensuse-tumbleweed-borg-backup
     image: "fgoebel/molecule-opensuse:tumbleweed"
     override_command: False
     pre_build_image: True
@@ -138,7 +138,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-oraclelinux6
+  - name: oraclelinux6-borg-backup
     image: "fgoebel/molecule-oraclelinux:6"
     override_command: False
     pre_build_image: True
@@ -146,7 +146,7 @@ platforms:
     tmpfs:
       - /tmp
       - /run
-  - name: borg_backup-oraclelinux7
+  - name: oraclelinux7-borg-backup
     image: "fgoebel/molecule-oraclelinux:7"
     override_command: False
     pre_build_image: True
@@ -156,7 +156,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-oraclelinux8
+  - name: oraclelinux8-borg-backup
     image: "fgoebel/molecule-oraclelinux:8"
     override_command: False
     pre_build_image: True
@@ -166,7 +166,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-oraclelinux
+  - name: oraclelinux-borg-backup
     image: "fgoebel/molecule-oraclelinux:latest"
     override_command: False
     pre_build_image: True
@@ -176,7 +176,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-ubuntu1604
+  - name: ubuntu1604-borg-backup
     image: "fgoebel/molecule-ubuntu:16.04"
     override_command: False
     pre_build_image: True
@@ -186,7 +186,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-ubuntu1804
+  - name: ubuntu1804-borg-backup
     image: "fgoebel/molecule-ubuntu:18.04"
     override_command: False
     pre_build_image: True
@@ -196,7 +196,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-ubuntu2004
+  - name: ubuntu2004-borg-backup
     image: "fgoebel/molecule-ubuntu:20.04"
     override_command: False
     pre_build_image: True
@@ -206,7 +206,7 @@ platforms:
       - /run
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-  - name: borg_backup-ubuntu
+  - name: ubuntu-borg-backup
     image: "fgoebel/molecule-ubuntu:latest"
     override_command: False
     pre_build_image: True
