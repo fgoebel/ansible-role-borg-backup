@@ -14,38 +14,41 @@ borg_binary_install_path: /usr/local/bin
 borg_binary_arch: linux64
 borg_binary_download_url: "https://github.com/borgbackup/borg/releases/download/{{ borg_binary_version }}/borg-{{ borg_binary_arch }}" # yamllint disable-line
 
+_skip_package_install: false
+
 # Borg Client configuration
 borg_path: borg
 
-borg_client_config_enabled: True
+borg_client_config_enabled: false
 
-borg_configs:
-  - name: nameOfYourApplication
-    # borg_cd_dir: ""  # path where borg is executed, this defines the root folder in the archive
-    exclude:
-      - /home/user/.cache
-    include:
-      - /home/user
-    pre_backup_hooks: []
-    post_backup_hooks: []
-    # pre_restore_hooks: []  # WARNING: not implemented yet
-    # post_restore_hooks: []  # WARNING: not implemented yet
-    ssh_key: "/root/.ssh/id_ed25519"
-    # repo: ssh://user@borg.example.net:22/path/to/repo  # port is required!!
-    repo: user@borg.example.net:/path/to/repo
-    # Have a look at https://borgbackup.readthedocs.io/en/stable/usage/prune.html for more information
-    prune_options: "--keep-within=1d -H=12 -d7 -w8 -m12"
-    compresstion: "lzma,9"
-    # set cron
-    cron:
-      # backup: yes
-      special_time: hourly
-      # minute: "*"
-      # hour: "*"
-      # weekday: "*"
-      # day: "*"
-      # month: "*"
-      state: present
+borg_configs: []
+# borg_configs:
+#   - name: nameOfYourApplication
+#     # borg_cd_dir: ""  # path where borg is executed, this defines the root folder in the archive
+#     exclude:
+#       - /home/user/.cache
+#     include:
+#       - /home/user
+#     pre_backup_hooks: []
+#     post_backup_hooks: []
+#     # pre_restore_hooks: []  # WARNING: not implemented yet
+#     # post_restore_hooks: []  # WARNING: not implemented yet
+#     ssh_key: "/root/.ssh/id_ed25519"
+#     # repo: ssh://user@borg.example.net:22/path/to/repo  # port is required!!
+#     repo: user@borg.example.net:/path/to/repo
+#     # Have a look at https://borgbackup.readthedocs.io/en/stable/usage/prune.html for more information
+#     prune_options: "--keep-within=1d -H=12 -d7 -w8 -m12"
+#     compresstion: "lzma,9"
+#     # set cron
+#     cron:
+#       # backup: yes
+#       special_time: hourly
+#       # minute: "*"
+#       # hour: "*"
+#       # weekday: "*"
+#       # day: "*"
+#       # month: "*"
+#       state: present
 
 # Borg Server configuration
 borg_remote_path: borg

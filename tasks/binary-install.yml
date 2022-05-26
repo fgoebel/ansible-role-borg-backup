@@ -16,6 +16,7 @@
   package:
     name: "{{ borg_backup_binary_required_packages }}"
     state: present
+  when: not _skip_package_install
 
 - name: Download borg
   become: yes

@@ -1,0 +1,12 @@
+---
+
+# DMS 7 uses this
+
+borg_backup_packages: []
+
+borg_backup_package_available: False
+borg_backup_package: ""
+
+borg_backup_binary_required_packages: []
+
+_skip_package_install: true

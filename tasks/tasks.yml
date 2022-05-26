@@ -20,6 +20,7 @@
   package:
     name: "{{ borg_backup_packages }}"
     state: present
+  when: not _skip_package_install
 
 - name: Install borg-backup package
   package:
