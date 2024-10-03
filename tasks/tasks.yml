@@ -20,7 +20,9 @@
   package:
     name: "{{ borg_backup_packages }}"
     state: present
-  when: not _skip_package_install
+  when:
+    - not _skip_package_install
+    - borg_install | bool
 
 - name: Install borg-backup package
   package:
@@ -29,12 +31,14 @@
   when:
     - borg_backup_package_available
     - not borg_force_binary_installation
+    - borg_install | bool
 
 - name: include tasks for manual installation with binary package
   include_tasks: binary-install.yml
-  when: |
-    (not borg_backup_package_available)
-    or borg_force_binary_installation
+  when:
+    - (not borg_backup_package_available)
+        or borg_force_binary_installation
+    - borg_install | bool
 
 - name: Create borg client scripts
   template:

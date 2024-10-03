@@ -6,10 +6,13 @@
 # Checked in tasks/main.yml which includes tasks.yml if enabled.
 borg_backup_role_enabled: False
 
+# if we should skip the hole Installation
+borg_install: true
+
 # Borg binary installation
 borg_force_binary_installation: False
 
-borg_binary_version: 1.2.0
+borg_binary_version: 1.2.6
 borg_binary_install_path: /usr/local/bin
 borg_binary_arch: linux64
 borg_binary_download_url: "https://github.com/borgbackup/borg/releases/download/{{ borg_binary_version }}/borg-{{ borg_binary_arch }}" # yamllint disable-line
