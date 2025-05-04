@@ -12,10 +12,12 @@ borg_install: true
 # Borg binary installation
 borg_force_binary_installation: False
 
-borg_binary_version: 1.2.6
+borg_binary_version: 1.4.1
 borg_binary_install_path: /usr/local/bin
-borg_binary_arch: linux64
+borg_binary_arch: linux-glibc236
 borg_binary_download_url: "https://github.com/borgbackup/borg/releases/download/{{ borg_binary_version }}/borg-{{ borg_binary_arch }}" # yamllint disable-line
+
+# have a look at https://github.com/borgbackup/borg/releases for more information regarding available binary builds
 
 _skip_package_install: false
 
